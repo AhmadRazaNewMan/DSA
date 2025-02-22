@@ -1,21 +1,20 @@
-console.log("TWO SUM PROBLEM");
+function twoSum (target,arr){
+    let set = new Set();
+    for(let i=0;i<arr.length;i++){
+        if(set.has(target-arr[i])){
+            return {first:target-arr[i],second:arr[i]};
+        }else{
+            set.add(arr[i]);
 
-function twoSum(array_of_numbers, target) {
-    let hash_map = {};
-    for (let i = 0; i < array_of_numbers.length; i++) { 
-        let diff = target - array_of_numbers[i];
-
-        if (hash_map[diff] !== undefined) {
-            console.log("SOLUTION FOUND");
-            return [hash_map[diff], i];
         }
-
-        hash_map[array_of_numbers[i]] = i;
     }
-    return "NO SOLUTION FOUND";
+    return "No such pair found that sums up to the target";
 }
 
-let array_of_numbers = [2, 7, 11, 15];
-let target = 9;
-let result = twoSum(array_of_numbers, target);
-console.log(result); 
+const arr = [1,2,3,4,5,6,7,8,9];
+const target = 10;
+console.log(twoSum(target,arr));
+
+// calculating the time complexity of the above code
+// O(n) time complexity
+// O(n) space complexity
